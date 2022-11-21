@@ -1,18 +1,15 @@
-
-def twoSum(nums, target):
-    new_nums = [i for i in nums if i < target]
-    # print(new_nums)
-
-    # for i in nums:
-    #     if i > target:
-    #         nums.remove(i)
-    #     else:
-    #         continue
-    #     print(nums)
-    return
+List = [2, 4, 5, 6]
+target = 6
 
 
-nums = [2, 3, 4, 5, 6, 7]
-target = 5
+class Solution:
+    def twosums(self, nums, target):
+        prevMap = {}
+        for i, n in enumerate(nums):
+            diff = target - n
+            if diff in prevMap:
+                return (prevMap[diff], i)
+            prevMap[n] = i
 
-twoSum(nums, target)
+
+print(Solution().twosums(List, target))
