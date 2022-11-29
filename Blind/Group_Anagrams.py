@@ -7,6 +7,7 @@ strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
 class Solution:
     def groupAnagrams(self, strs):
         result = defaultdict(list)
+        # result = {}
 
         for s in strs:
             count = [0] * 26
