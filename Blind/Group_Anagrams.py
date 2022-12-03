@@ -1,33 +1,26 @@
+from collections import defaultdict
+
 strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
 # Expected_Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
 
+
 class Solution:
     def groupAnagrams(self, strs):
+        result = defaultdict(list)
+        # result = {}
 
-        get_num = []
-        for str in strs:
-            get_num.append(sorted(str))
+        for s in strs:
+            count = [0] * 26
+            for l in s:
+                count[(ord(l) - ord("a"))] += 1
+            # print(count)
+            result[tuple(count)].append(s)
 
-        new_get_num = []
-        for i in get_num:
-            if i not in new_get_num:
-                new_get_num.append(i)
-        # new_get_num = [['a', 'e', 't'], ['a', 'n', 't'], ['a', 'b', 't']]
+        answer = []
+        for res in result.values():
+            answer.append(res)
 
-        output = []
-        len_of_output = len(new_get_num)
-        while len_of_output > 0:
-            output.append([])
-            len_of_output -= 1
-        # output = [[], [], []]
-
-        for i in output:
-            for str in strs:
-                sorted(str) == 
-            # print(i)
-        
-        return new_get_num
-        
+        return answer
 
 
 print(Solution().groupAnagrams(strs))
