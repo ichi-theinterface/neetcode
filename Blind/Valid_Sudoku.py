@@ -30,6 +30,16 @@ class Solution:
                     #print(hashset)
             #print(f"column number {j + 1}. the column is {column}")
 
+        for i in range(0, 9, 3):
+            for j in range(0, 9, 3):
+                box = [board[x][y] for x in range(i, i + 3) for y in range(j, j + 3)]
+                hashset = set()
+                for cell in box:
+                    if cell != ".":
+                        if cell in hashset:
+                            return False
+                        hashset.add(cell)
+        
         return True
 
 
