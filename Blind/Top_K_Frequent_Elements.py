@@ -1,21 +1,28 @@
-nums = [3,3,3,4,4,5]
-k = 2
+from typing import List
 
 class Solution:
-    def opKFrequent(self, nums, k):
-        frequency = []
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        frequency_dict = {}
         for num in nums:
-            count = 0 
-            for a in nums:
-                if a == num:
-                    count += 1
-            frequency.append(count)
-        for f in frequency:
-            if f in frequency:
-                frequency.remove(f)
-        frequency
+            if num not in frequency_dict:
+                frequency_dict[num] = 1
+            else:
+                frequency_dict[num] += 1
+        sorted_dict = sorted(frequency_dict, key=frequency_dict.get, reverse=True)
+        
+        return_array = []
+        i = 0
+        while i < k:
+            return_array.append(sorted_dict[i])
+            i += 1
+        return return_array
 
-        return frequency
 
+nums = [1,1,1,2,2,3,3,3]
+k = 2
 
-print(Solution().opKFrequent(nums, k))
+solution = Solution()
+
+solution.topKFrequent(nums, k)
+        
+print(solution.topKFrequent(nums, k))    
