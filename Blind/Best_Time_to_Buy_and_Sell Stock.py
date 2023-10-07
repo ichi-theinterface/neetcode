@@ -9,7 +9,7 @@ class Solution:
             while sell_pointer < len(prices):
                 if (prices[sell_pointer] - price) > profit:
                     profit = prices[sell_pointer] - price
-                    print(f"buy is {price}, and sell is {prices[sell_pointer]}")
+                    # print(f"buy is {price}, and sell is {prices[sell_pointer]}")
                 sell_pointer += 1
             buy_pointer += 1
             sell_pointer = buy_pointer + 1
